@@ -2,7 +2,9 @@
 from __future__ import unicode_literals
 import os
 import youtube_dl
+from youtube_dl.utils import DownloadError
 from youdownload import app
+from flask import render_template
 
 
 DOWNLOAD_OPTIONS = {
@@ -17,13 +19,20 @@ DOWNLOAD_OPTIONS = {
 
 
 def download_song_from_url(url=None):
-    print("Download :: Downling audio from [{}]".format(url))
-    if url:
-        with youtube_dl.YoutubeDL(DOWNLOAD_OPTIONS) as ydl:
-            ydl.download([url])
-            print("Audio downloaded successfully!")
-            return True
+    try:
+        if url:
+            with youtube_dl.YoutubeDL(DOWNLOAD_OPTIONS) as ydl:
+                ydl.download([url])
+                print("Audio downloaded successfully!")
+                return None
+            print("NO URL PROVIDED")
+    except DownloadError as e:
+        print(e)
+        ctx = {
+                "error": True,
+                "msg": str(e),
+        }
 
-    print("URL not specified...audio not downloaded")
-    return False
+        print("URL not specified...audio not downloaded")
+        return ctx
 

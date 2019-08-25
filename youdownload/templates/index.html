@@ -48,15 +48,11 @@
                     }
                 },
                 submitHandler: function(form) {
+                    $("#hide_after_submit").hide();
+                    $("#show_after_submit1").show();
+                    $("#show_after_submit2").show();
                     form.submit();
                 }
-            });
-
-            $("#submit_hide").click(function(){
-                console.log("Hello");
-                $("#hide_after_submit").hide();
-                $("#show_after_submit1").show();
-                $("#show_after_submit2").show();
             });
         });
     </script>

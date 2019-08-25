@@ -6,7 +6,11 @@ app = Flask(__name__, instance_relative_config=True)
 
 app.config.from_mapping(SECRET_KEY='dev',
                         TEMPLATE=os.environ.get('YD_OUTTMPL'),
-                        CWD=os.getcwd())
+                        CWD=os.getcwd(),
+                        STATIC_FOLDER=os.path.join(os.getcwd(),
+                                                   'youdownload',
+                                                   'static'),
+                        )
 
 try:
     os.makedirs(app.instance_path)

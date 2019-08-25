@@ -4,7 +4,7 @@ import os
 import youtube_dl
 from youtube_dl.utils import DownloadError
 from youdownload import app
-from flask import render_template
+from flask import render_template, send_from_directory
 
 
 DOWNLOAD_OPTIONS = {
@@ -35,4 +35,9 @@ def download_song_from_url(url=None):
 
         print("URL not specified...audio not downloaded")
         return ctx
+
+
+@app.route('/static/<filename>', methods=["GET"])
+def serve_file(filename):
+    return send_from_directory(app.config["STATIC_FOLDER"], filename)
 

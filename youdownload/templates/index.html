@@ -5,6 +5,9 @@
     <title>YouDownload</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
     <style>
         .loader {
           border: 16px solid #f3f3f3;
@@ -33,6 +36,22 @@
             $("#show_after_submit1").hide();
             $("#show_after_submit2").hide();
 
+            jQuery.validator.setDefaults({
+                success: "valid"
+            });
+
+            $("#input_form").validate({
+                rules: {
+                    field: {
+                        required: true,
+                        url: true
+                    }
+                },
+                submitHandler: function(form) {
+                    form.submit();
+                }
+            });
+
             $("#submit_hide").click(function(){
                 console.log("Hello");
                 $("#hide_after_submit").hide();
@@ -52,7 +71,7 @@
     <div class="user_input" id="hide_after_submit">
         <b>Please input a valid youtube URL:</b>
         <br>
-        <form method="post">
+        <form method="post" id="input_form">
             <input type="url" name="youtube_url">
             <button id="submit_hide">Convert!</button>
         </form>

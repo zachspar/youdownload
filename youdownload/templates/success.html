@@ -8,7 +8,12 @@
 <body>
     <b>SUCCESS! Your song was converted.</b>
     <br>
-    <a href="{{url_for('index')}}">Home</a>
+    <a target="_blank" href="{{url_for('download_song', song_filename=song_filename)}}">DOWNOAD SONG</a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="{{url_for('index')}}">Convert another song!</a>
 </body>
 
 </html>

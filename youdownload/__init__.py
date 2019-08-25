@@ -10,6 +10,9 @@ app.config.from_mapping(SECRET_KEY='dev',
                         STATIC_FOLDER=os.path.join(os.getcwd(),
                                                    'youdownload',
                                                    'static'),
+                        SONG_FOLDER=os.path.join(os.getcwd(),
+                                                 'www', 'yd',
+                                                 'songs', 'mp3'),
                         )
 
 try:

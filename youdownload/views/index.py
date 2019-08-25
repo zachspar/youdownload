@@ -19,8 +19,8 @@ def index():
                                             (youtube_url,))
             ret_val = async_result.get()
 
-            if not ret_val:
-                return render_template("success.html", **{})
+            if 'song_filename' in ret_val:
+                return render_template("success.html", **ret_val)
 
             return render_template("index.html", **ret_val)
 

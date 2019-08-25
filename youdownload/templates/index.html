@@ -44,6 +44,11 @@
 </head>
 
 <body>
+    {% if error %}
+    <h3>ERROR: cannot convert this video!</h3>
+    <b>{{msg}}</b>
+    <br><br><br>
+    {% endif %}
     <div class="user_input" id="hide_after_submit">
         <b>Please input a valid youtube URL:</b>
         <br>

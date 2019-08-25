@@ -17,13 +17,13 @@ DOWNLOAD_OPTIONS = {
 
 
 def download_song_from_url(url=None):
-    print("Thread started")
-    print("Thread :: Downling audio from [{}]".format(url))
+    print("Download :: Downling audio from [{}]".format(url))
     if url:
         with youtube_dl.YoutubeDL(DOWNLOAD_OPTIONS) as ydl:
             ydl.download([url])
             print("Audio downloaded successfully!")
-            return
+            return True
 
     print("URL not specified...audio not downloaded")
+    return False
 

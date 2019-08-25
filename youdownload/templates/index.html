@@ -1,3 +1,68 @@
+<!DOCTYPE html>
 <html>
-    <p> hello world, my name is zachary spar</p>
+
+<head>
+    <title>YouDownload</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        .loader {
+          border: 16px solid #f3f3f3;
+          border-radius: 50%;
+          border-top: 16px solid #3498db;
+          width: 120px;
+          height: 120px;
+          -webkit-animation: spin 2s linear infinite; /* Safari */
+          animation: spin 2s linear infinite;
+        }
+
+        /* Safari */
+        @-webkit-keyframes spin {
+          0% { -webkit-transform: rotate(0deg); }
+          100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            $("#show_after_submit1").hide();
+            $("#show_after_submit2").hide();
+
+            $("#submit_hide").click(function(){
+                console.log("Hello");
+                $("#hide_after_submit").hide();
+                $("#show_after_submit1").show();
+                $("#show_after_submit2").show();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="user_input" id="hide_after_submit">
+        <b>Please input a valid youtube URL:</b>
+        <br>
+        <form method="post">
+            <input type="url" name="youtube_url">
+            <button id="submit_hide">Convert!</button>
+        </form>
+        <br>
+        <a href="{{url_for('index')}}">Home</a>
+    </div>
+    <br>
+    <div id="show_after_submit1">
+        <b>Please do not redirect or hit back button...</b>
+        <br>
+        <p>Currently converting your song :)</p>
+    </div>
+    <br>
+    <div class="loader" id="show_after_submit2"></div>
+</body>
+
 </html>
+

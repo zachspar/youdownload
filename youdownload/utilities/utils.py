@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 from __future__ import unicode_literals
+import os
 import youtube_dl
+from youdownload import app
 
-"""
-ydl_opts = {
+
+DOWNLOAD_OPTIONS = {
+    'outtmpl' : app.config["TEMPLATE"],
     'format': 'bestaudio/best',
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',
@@ -12,8 +15,15 @@ ydl_opts = {
     }],
 }
 
-with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-    ydl.download(['https://www.youtube.com/watch?v=F22DCvJ24Eg'])
 
-"""
+def download_song_from_url(url=None):
+    print("Thread started")
+    print("Thread :: Downling audio from [{}]".format(url))
+    if url:
+        with youtube_dl.YoutubeDL(DOWNLOAD_OPTIONS) as ydl:
+            ydl.download([url])
+            print("Audio downloaded successfully!")
+            return
+
+    print("URL not specified...audio not downloaded")
 

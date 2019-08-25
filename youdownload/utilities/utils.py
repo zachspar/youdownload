@@ -19,20 +19,22 @@ DOWNLOAD_OPTIONS = {
 
 
 def download_song_from_url(url=None):
+    ctx = {
+        "error": True,
+        "msg": "",
+    }
     try:
         if url:
             with youtube_dl.YoutubeDL(DOWNLOAD_OPTIONS) as ydl:
                 ydl.download([url])
                 print("Audio downloaded successfully!")
                 return None
-            print("NO URL PROVIDED")
+        print("NO URL PROVIDED")
+        ctx["msg"] = "Not a valid URL!"
+        return ctx
     except DownloadError as e:
         print(e)
-        ctx = {
-                "error": True,
-                "msg": str(e),
-        }
-
+        ctx["msg"] = e
         print("URL not specified...audio not downloaded")
         return ctx
 

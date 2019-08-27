@@ -7,8 +7,14 @@ from youdownload import app
 from flask import render_template, send_from_directory, Response
 
 
+
+OUTTMPL = os.path.join(os.getcwd(),
+                       'www', 'yd',
+                       'songs', 'mp3',
+                       '%(title)s.%(ext)s')
+
 DOWNLOAD_OPTIONS = {
-    'outtmpl' : app.config["TEMPLATE"],
+    'outtmpl' : OUTTMPL,
     'format': 'bestaudio/best',
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',
@@ -29,7 +35,7 @@ def download_song_from_url(url=None):
                 title_result = ydl.extract_info(url)
                 ydl.prepare_filename(title_result)
                 title = title_result.get("title", None) + ".mp3"
-                ydl.download([url])
+                # ydl.download([url])
                 print("Audio downloaded successfully!")
                 # TODO : fix bug here - file extension
                 ctx["error"] = False

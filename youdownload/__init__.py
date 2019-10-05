@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Create flask app."""
 import os
 from flask import Flask
 
@@ -22,6 +23,5 @@ try:
 except OSError:
     pass
 
-from youdownload.views.index import *
-from youdownload.utilities.utils import *
-
+from youdownload.views.index import *  # noqa: E402
+from youdownload.utilities.utils import *  # noqa: E402

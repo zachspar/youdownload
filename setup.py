@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Setup flask app."""
 from setuptools import find_packages, setup
 
 setup(
@@ -12,4 +13,3 @@ setup(
         'youtube_dl',
     ],
 )
-

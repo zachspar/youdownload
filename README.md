@@ -7,9 +7,12 @@ Check out the website (give it a minute to load LOL it runs on a free server!!) 
 Just go find a song you like on YouTube, copy the link, paste the link [here](https://playlist-projectv0.herokuapp.com), and download the exact same quality music you get from the video :)
 
 ## Setup and Installation
-1. Make sure that `pwd` is within project root = `youdownload_project`
-2. `python3 -m venv env; . env/bin/activate; pip install --upgrade pip; pip install -r requirements.txt; pip install -e .`
-	 - This creates a virtual environment with the package installed as well as all the dependencies needed for the project
+1. Make sure that `pwd` is your project root = `youdownload_project`
+2. Create a virtual environment with the package installed as well as all the dependencies needed for the project
+   - `python3 -m venv env`
+   - `source env/bin/activate`
+   - `pip install --upgrade pip`
+   - `pip install -r requirements.txt`
 3. Change execution mode of `server.sh` script
     - run `chmod +x server.sh`
     - run `./server.sh`

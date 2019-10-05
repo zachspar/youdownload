@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Youdownload utility functions."""
 from __future__ import unicode_literals
 import os
 import youtube_dl
@@ -7,14 +8,13 @@ from youdownload import app
 from flask import render_template, send_from_directory, Response
 
 
-
 OUTTMPL = os.path.join(os.getcwd(),
                        'www', 'yd',
                        'songs', 'mp3',
                        '%(title)s.%(ext)s')
 
 DOWNLOAD_OPTIONS = {
-    'outtmpl' : OUTTMPL,
+    'outtmpl': OUTTMPL,
     'format': 'bestaudio/best',
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',
@@ -25,6 +25,7 @@ DOWNLOAD_OPTIONS = {
 
 
 def download_song_from_url(url=None):
+    """Download song from given video uri."""
     ctx = {
         "error": True,
         "msg": "",
@@ -53,14 +54,15 @@ def download_song_from_url(url=None):
 
 @app.route('/static/<filename>', methods=["GET"])
 def serve_file(filename):
+    """Serve static files."""
     return send_from_directory(app.config["STATIC_FOLDER"], filename)
 
 
 @app.route('/download/<song_filename>', methods=["GET"])
 def download_song(song_filename):
+    """Download mp3 attachment."""
     return send_from_directory(app.config["SONG_FOLDER"],
                                song_filename,
                                as_attachment=True,
                                mimetype="audio/mp3",
                                attachment_filename=song_filename)
-

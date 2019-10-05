@@ -3,7 +3,7 @@
 import os
 
 
-SECRET_KEY = b'\xeb4c\x1f\x8c\x7f\xd4\x1f\x0f\xf1\xb8\xd8\x8a<\xbf.vb?._\xcc\xe8\xf1'  # noqa: E501
+SECRET_KEY = b'your secret key here'
 STATIC_FOLDER = os.path.join(os.getcwd(),
                              'youdownload',
                              'static')

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Index view."""
 import os
 from youdownload import app
 from threading import Thread
@@ -10,6 +11,7 @@ from multiprocessing.pool import ThreadPool
 
 @app.route('/', methods=["GET", "POST"])
 def index():
+    """Listen for incoming requests to '/'."""
     if request.method == "POST":
         try:
             youtube_url = request.form.get("youtube_url")
@@ -28,4 +30,3 @@ def index():
             print(e)
 
     return render_template("index.html", **{})
-

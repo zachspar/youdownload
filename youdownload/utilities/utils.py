@@ -11,7 +11,7 @@ from flask import render_template, send_from_directory, Response
 OUTTMPL = os.path.join(os.getcwd(),
                        'www', 'yd',
                        'songs', 'mp3',
-                       '%(title)s.%(ext)s')
+                       'downloaded_file.mp3')
 
 DOWNLOAD_OPTIONS = {
     'outtmpl': OUTTMPL,
@@ -35,12 +35,11 @@ def download_song_from_url(url=None):
             with youtube_dl.YoutubeDL(DOWNLOAD_OPTIONS) as ydl:
                 title_result = ydl.extract_info(url)
                 ydl.prepare_filename(title_result)
-                title = title_result.get("title", None) + ".mp3"
                 # ydl.download([url])
                 print("Audio downloaded successfully!")
                 # TODO : fix bug here - file extension
                 ctx["error"] = False
-                ctx["song_filename"] = title
+                ctx["song_filename"] = 'downloaded_song.mp3'
                 return ctx
         print("NO URL PROVIDED")
         ctx["msg"] = "Not a valid URL!"

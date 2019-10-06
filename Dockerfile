@@ -10,4 +10,4 @@ copy requirements.txt /
 copy wsgi.py /
 copy youdownload/ /youdownload
 run pip3 install -r requirements.txt
-cmd python3 wsgi.py
+cmd gunicorn --workers 2 --bind 0.0.0.0:5000 wsgi

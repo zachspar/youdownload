@@ -6,6 +6,9 @@ Download music from youtube. I made this because I was fed up with all the adver
 Check out the website (give it a minute to load LOL it runs on a free server!!) :: [YouDownload.com](https://playlist-projectv0.herokuapp.com)
 Just go find a song you like on YouTube, copy the link, paste the link [here](https://playlist-projectv0.herokuapp.com), and download the exact same quality music you get from the video :)
 
+## Docker
+See project tab GitHub packages to download docker image. You can alo visit [YouDownload Docker](https://hub.docker.com/r/zachspar/youdownload) to download through Docker!
+
 ## Setup and Installation
 1. Make sure that `pwd` is your project root = `youdownload_project`
 2. Create a virtual environment with the package installed as well as all the dependencies needed for the project

@@ -2,8 +2,8 @@ from ubuntu:latest
 maintainer Zachary Spar "zachspar@gmail.com"
 workdir /
 run apt-get update -y && \
-    apt-get install -y python3-pip python3-dev
-run mkdir /youdownload
+    apt-get install -y python3-pip python3-dev ffmpeg
+run mkdir -p /youdownload /www/yd/songs/mp3
 copy config.py /
 copy setup.py /
 copy requirements.txt /

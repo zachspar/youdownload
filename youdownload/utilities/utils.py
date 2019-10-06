@@ -60,7 +60,7 @@ def serve_file(filename):
 @app.route('/download/<song_filename>', methods=["GET"])
 def download_song(song_filename):
     """Download mp3 attachment."""
-    return send_from_directory(app.config["SONG_FOLDER"],
+    return send_from_directory('/www/yd/songs/mp3/',
                                song_filename,
                                as_attachment=True,
                                mimetype="audio/mp3",

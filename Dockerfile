@@ -10,4 +10,5 @@ copy requirements.txt /
 copy wsgi.py /
 copy youdownload/ /youdownload
 run pip3 install -r requirements.txt
+env YD_OUTTMPL /www/yd/songs/mp3/downloaded_song.mp3
 cmd gunicorn --workers 2 --bind 0.0.0.0:5000 wsgi

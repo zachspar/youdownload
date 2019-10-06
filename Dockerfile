@@ -1,9 +1,13 @@
 from ubuntu:latest
 maintainer Zachary Spar "zachspar@gmail.com"
-run apt-get update -y && apt-get upgrade && \
-    apt-get install -y python3-pip python3-dev
-copy . /
 workdir /
+run apt-get update -y && \
+    apt-get install -y python3-pip python3-dev
+run mkdir /youdownload
+copy config.py /
+copy setup.py /
+copy requirements.txt /
+copy wsgi.py /
+copy youdownload/ /youdownload
 run pip3 install -r requirements.txt
-entrypoint gunicorn 
-cmd youdownload:app --workers 2
+cmd python3 wsgi.py

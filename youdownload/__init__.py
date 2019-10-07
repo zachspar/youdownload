@@ -6,15 +6,13 @@ from flask import Flask
 app = Flask(__name__, instance_relative_config=True)
 
 try:
-    os.makedirs(os.path.join(os.getcwd(),
-                             'www', 'yd',
-                             'songs', 'mp3'))
-    os.makedirs(os.path.join(os.getcwd(),
-                             'youdownload',
-                             'static'))
+    full_path = os.path.join(os.getcwd(), 'www', 'yd', 'songs', 'mp3')
+    os.makedirs(full_path)
+    os.makedirs(os.path.join(os.getcwd(), 'youdownload', 'static'))
 except OSError as e:
     print(e)
-
+finally:
+    os.system('rm -f {}/downloaded_song*'.format(full_path))
 
 app.config.from_object('config')
 

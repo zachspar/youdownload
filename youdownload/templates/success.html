@@ -8,7 +8,7 @@
 <body>
     <b>SUCCESS! Your song was converted.</b>
     <br>
-    <a target="_blank" href="{{url_for('download_song', song_filename=song_filename)}}">DOWNOAD SONG</a>
+    <a target="_blank" href="{{url_for('download_song', artist=song_metadata[0], title=song_metadata[1])}}">DOWNLOAD SONG</a>
     <br>
     <br>
     <br>

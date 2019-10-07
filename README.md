@@ -9,6 +9,9 @@ Just go find a song you like on YouTube, copy the link, paste the link [here](ht
 ## Docker
 See project tab GitHub packages to download docker image. You can alo visit [YouDownload Docker](https://hub.docker.com/r/zachspar/youdownload) to download through Docker!
 
+ - `docker pull zachspar/youdownload:latest`
+ - `docker run -p 5000:5000 zachspar/youdownload:latest`
+
 ## Setup and Installation
 1. Make sure that `pwd` is your project root = `youdownload_project`
 2. Create a virtual environment with the package installed as well as all the dependencies needed for the project

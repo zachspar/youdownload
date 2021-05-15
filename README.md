@@ -3,14 +3,8 @@
 Download music from youtube. I made this because I was fed up with all the advertisements and loss of music quality when attepting to download YouTube songs from over the internet. This package creates a local web application that allows you to paste a Youtube url into the UI to extract the audio from a Youtube video. Once an MP3 file is generated, you will be able to download it directly to your local machine.
 
 ## Live website :)
-Check out the website (give it a minute to load LOL it runs on a free server!!) :: [YouDownload.com](https://playlist-projectv0.herokuapp.com)
-Just go find a song you like on YouTube, copy the link, paste the link [here](https://playlist-projectv0.herokuapp.com), and download the exact same quality music you get from the video :)
-
-## Docker
-See project tab GitHub packages to download docker image. You can alo visit [YouDownload Docker](https://hub.docker.com/r/zachspar/youdownload) to download through Docker!
-
- - `docker pull zachspar/youdownload:latest`
- - `docker run -p 5000:5000 zachspar/youdownload:latest`
+Check out the website (give it a minute to load LOL it runs on a free server!!) :: [YouDownload.com](https://youdownload-zs.herokuapp.com)
+Just go find a song you like on YouTube, copy the link, paste the link [here](https://youdownload-zs.herokuapp.com), and download the exact same quality music you get from the video :)
 
 ## Setup and Installation
 1. Make sure that `pwd` is your project root = `youdownload_project`

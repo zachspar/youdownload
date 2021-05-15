@@ -26,7 +26,7 @@ def download_song_from_url(url=None):
     """Download song from given video uri."""
     ctx = {
         "error": True,
-        "msg": "",
+        "msg": "Error: Unable to download song.",
     }
     try:
         if url:

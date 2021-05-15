@@ -15,6 +15,7 @@ def index():
     if request.method == "POST":
         try:
             youtube_url = request.form.get("youtube_url")
+            download_video_bool = request.form.get("download_video_bool")
 
             pool = ThreadPool(processes=1)
             async_result = pool.apply_async(download_song_from_url,

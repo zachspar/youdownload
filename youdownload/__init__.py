@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Create flask app."""
+"""YouDownload Flask App."""
 import os
 from flask import Flask
 
 app = Flask(__name__, instance_relative_config=True)
 
+full_path = os.path.join(os.getcwd(), 'www', 'yd', 'songs', 'mp3')
 try:
-    full_path = os.path.join(os.getcwd(), 'www', 'yd', 'songs', 'mp3')
     os.makedirs(full_path)
     os.makedirs(os.path.join(os.getcwd(), 'youdownload', 'static'))
 except OSError as e:

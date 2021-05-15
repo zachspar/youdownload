@@ -11,7 +11,7 @@ from multiprocessing.pool import ThreadPool
 
 @app.route('/', methods=["GET", "POST"])
 def index():
-    """Listen for incoming requests to '/'."""
+    """Listen for incoming requests on index."""
     if request.method == "POST":
         try:
             youtube_url = request.form.get("youtube_url")

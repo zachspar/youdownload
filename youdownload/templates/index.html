@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>YouDownload</title>
@@ -14,16 +14,24 @@
 
 <body>
     {% if error %}
-    <h3>ERROR: cannot convert this video!</h3>
-    <b>{{msg}}</b>
-    <br><br><br>
+        <h3>ERROR: cannot convert this video!</h3>
+        <b>{{msg}}</b>
+        <br><br><br>
     {% endif %}
     <div class="user_input" id="hide_after_submit">
         <b>Please input a valid youtube URL:</b>
         <br>
         <form method="post" id="input_form">
-            <input type="url" name="youtube_url">
+            <label>
+                <input type="url" name="youtube_url">
+            </label>
             <button id="submit_hide">Convert!</button>
+            <br>
+            <p>Download Video?</p>
+            <label class="switch">
+                <input name="download_video_bool" type="checkbox" checked>
+                <span class="slider round"></span>
+            </label>
         </form>
         <br>
         <a href="{{url_for('index')}}">Home</a>
